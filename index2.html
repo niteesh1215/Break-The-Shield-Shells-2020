@@ -1,0 +1,169 @@
+<html> 
+   <head> 
+      <title>IT Quiz | Break the Shield</title> 
+<style type=text/css> 
+
+*{box-sizing: border-box;padding: 0%;margin: 0;}
+body{background-image: url("images/header.png");background-size: cover;}
+
+header{width: 100%;position: fixed;height:100px;display:flex;align-items: center;justify-content: space-around;background-color:whitesmoke; z-index: 100;background-image: url("images/header.png"); -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}
+header img{height: 90px;}
+header p{font-weight: bold;font-variant: small-caps;font-stretch: ultra-condensed;font-family:Impact, Charcoal, sans-serif;font-size: 3em;}
+header div{width:33.33%;display: flex;align-items: center; justify-content: center;}
+section{position: relative;display: flex;top: 120px;}
+section .left{display: flex;flex-direction:column;align-items: center; justify-content: center; width: calc( (100% - 1100px)/2 ); height: calc( 100vh - 120px );opacity: 0.8;}
+section .left img{ width: 50%;height:auto;justify-content: center;}
+section .left p{writing-mode: vertical-rl; text-orientation: upright; font-size: 2.5em;font-weight: bold;font-variant: small-caps;font-stretch: ultra-condensed;font-family:Impact, Charcoal, sans-serif;}
+.image
+{ 
+	color: white; 
+	background-color: black; 
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+	font-size: 25px; 
+	height:600px;
+	width:1100px;
+  	background-image: url("images/Gameloft(Break The Shield).jpg"); 
+  	background-repeat: no-repeat;
+  	background-size: cover;
+} 
+
+.image .button
+{
+	display:flex;
+	width:33.33%;
+	height:33.33%;
+	text-align: center;
+	display: inline-block;
+	font-size:3em;
+	background-color: rgb(216, 239, 247);
+}
+
+.image .button:hover
+{
+	background-color: rgb(125, 190, 211);
+}
+
+#display_question
+{
+	position:absolute;
+	top:-100vh;
+	background-color:rgb(35, 61, 85);
+	display:flex;
+  	justify-content: center;
+  	flex-flow: row wrap;
+	padding:30px;
+	width:80%;
+	min-height: 50vh;
+	z-index: 5;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);-moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+	transition: 0.6s ease-in-out;
+}
+
+#question{width:100%; text-align:center; font-size:1.5em;padding:50px 0 0 0; color:white; min-height: 40vh;}
+
+#display_question .option_buttons
+{
+	width:100%; display: flex;
+	justify-content:space-around;
+}
+#display_question div .select_button
+{
+  
+  display: inline-block;
+  border: none;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#display_question div .select_button:nth-child(1)
+{
+	background-color: green;
+}
+
+#display_question div .select_button:nth-child(2)
+{
+
+	background-color: red;
+}
+
+</style> 
+   
+</head> 
+  
+<body>
+	
+	<header>
+		<div><img src="images/KJC Banner.jpg"></div>
+		<div><p>
+			Break The Shield
+		</p></div>
+		<div><img src="images/Shells logo.png"><p>
+			SHELLS 2020
+		</p></div>
+		
+	</header>
+	<section>
+	<div class="left"><img src="images/IT quiz logo.png"><p>IT QUIZ</p><img src="images/IT quiz logo.png"></div>
+	<div class="image" > 
+
+		<input type="button" class="button" value="6" onClick="show_ques(5,this)">
+		<input type="button" class="button" value="8" onClick="show_ques(7,this)">
+		<input type="button" class="button" value="2" onClick="show_ques(1,this)">
+		<input type="button" class="button" value="4" onClick="show_ques(3,this)">
+		<input type="button" class="button" value="5" onClick="show_ques(4,this)">
+		<input type="button" class="button" value="9" onClick="show_ques(8,this)">
+		<input type="button" class="button" value="1" onClick="show_ques(0,this)">
+		<input type="button" class="button" value="7" onClick="show_ques(6,this)">
+		<input type="button" class="button" value="3" onClick="show_ques(2,this)">
+
+
+
+		<div id="display_question">
+	
+			<p id="question" ></p>
+		
+			<div class="option_buttons">
+				<input type="button" class="select_button" value="Correct" onClick="hide(1)">
+				<input type="button" class="select_button" value="Incorrect" onClick="hide(0)">
+			</div>
+	
+		</div>
+	</div> 
+	<div class="left"><img src="images/IT quiz logo.png"><p>IT QUIZ</p><img src="images/IT quiz logo.png"></div>
+
+	
+
+</section>
+<script>   
+
+	var questions = ["Designed to simulate the human real experience in the play, I’m a home video game console played with two linked devices called Dragon and Nunchuk. <br> Who am I ?", "What is the full form of NPC ?", "Developed and released in 2008 on Symbian OS, I incarnate an Assassin ‘Altair’ in 1190 who, fighting Templars attacks, tries to collect the precious Chalice kept in the Temple of the Sand and needs three keys to enter it.","Third-person action-adventure video game, I’m released in 2004 on Mobile OS, depicting the story of an unnamed Prince During the attack, the Prince obtains an artefact called the Dagger of Time.","FPS in Display and Multimedia is known as Frames Per Second, in Gaming, this acronym stands for ?","Been banned in 1998 by the government of Brazil for inciting violence and fined 8500$ to anyone selling me, what game am i ?","Mario made his first appearance in which video game in 1981 ?","Ultimately programmed in Just 6 days, I was first named “Cave Game” by Markus Persson affectionately known as “Notch” by the game fans, what game am I ?","Mobile video game, developed in 2.5D for all Mobile phones platforms, often compared to Burnout and Need for Speed, a race where opponents try to take down each other while escaping from the police car."]; 
+	var to_hide;
+	function show_ques(i, elem)
+	{
+ 
+		to_hide=elem;
+		document.getElementById("display_question").style.top ="15vh";
+		document.getElementById("question").innerHTML =questions[i];
+	}
+
+	function hide(choice)
+	{
+		if(choice===1)
+		{
+			to_hide.style.visibility = "hidden";
+			document.getElementById("display_question").style.top ="-100vh";
+		}
+		else
+		{
+			document.getElementById("display_question").style.top ="-100vh";
+		}
+		delete to_hide;
+	}
+ </script>
+</body> 
+</html> 
